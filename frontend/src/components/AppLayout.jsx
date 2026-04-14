@@ -34,6 +34,19 @@ export default function AppLayout() {
               Reportes
             </NavLink>
           )}
+          {(user?.role === 'admin' || user?.role === 'hr_admin') && (
+            <>
+              <NavLink to="/employees" className={({ isActive }) => (isActive ? 'is-active' : '')}>
+                Empleados
+              </NavLink>
+              <NavLink to="/payroll" className={({ isActive }) => (isActive ? 'is-active' : '')}>
+                Nómina
+              </NavLink>
+              <NavLink to="/attendance" className={({ isActive }) => (isActive ? 'is-active' : '')}>
+                Asistencia
+              </NavLink>
+            </>
+          )}
         </nav>
 
         <div className="permissions-box">

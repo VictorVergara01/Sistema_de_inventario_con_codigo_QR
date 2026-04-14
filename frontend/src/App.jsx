@@ -6,6 +6,9 @@ import ProductsPage from './pages/ProductsPage';
 import ScannerPage from './pages/ScannerPage';
 import MovementsPage from './pages/MovementsPage';
 import ReportsPage from './pages/ReportsPage';
+import EmployeesPage from './pages/EmployeesPage';
+import PayrollPage from './pages/PayrollPage';
+import AttendancePage from './pages/AttendancePage';
 
 export default function App() {
   return (
@@ -34,6 +37,30 @@ export default function App() {
           element={
             <ProtectedRoute roles={['admin', 'auditor']}>
               <ReportsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="employees"
+          element={
+            <ProtectedRoute roles={['admin', 'hr_admin']}>
+              <EmployeesPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="payroll"
+          element={
+            <ProtectedRoute roles={['admin', 'hr_admin']}>
+              <PayrollPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="attendance"
+          element={
+            <ProtectedRoute roles={['admin', 'hr_admin']}>
+              <AttendancePage />
             </ProtectedRoute>
           }
         />
